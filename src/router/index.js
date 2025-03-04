@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import PetsTypesList from '@/components/PetsTypesList.vue';
+import PetsTypesList from '@/components/PetsTypesList.vue'
+import OwnersList from '@/components/OwnersList.vue'
+import PetsList from '@/components/PetsList.vue'
+import BreedsList from '@/components/BreedsList.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,15 +16,28 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/petstypeslist',
       name: 'petstypeslist',
       component: PetsTypesList
+    },
+    {
+      path: '/ownerslist',
+      name: 'ownerslist',
+      component: OwnersList
+    },
+    {
+      path: '/petslist',
+      name: 'petslist',
+      component: PetsList
+    },
+    {
+      path: '/breedslist/:type_id',
+      name: 'breedslist',
+      component: BreedsList,
+      props: true
     }
   ],
 })
