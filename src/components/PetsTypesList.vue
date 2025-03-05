@@ -28,7 +28,12 @@ export default {
   methods: {
     async getData() {
       try {
-        const response = await this.$http.get("pt/");
+        const response = await this.$http.get("pt/", {
+          headers: {
+            authorization:
+              `Bearer ${localStorage.access_token}` ,
+          },
+        });
         this.items = response.data;
       } catch (error) {
         console.log(error);
@@ -36,31 +41,39 @@ export default {
     },
     async editData(id, name) {
       try {
-        await this.$http.put("pt/" + id + "/", { name: name });
+        await this.$http.put("pt/" + id + "/", { name: name },
+        {
+          headers: {
+            authorization:
+              `Bearer ${localStorage.access_token}` ,
+          }}
+          ,);
       } catch (error) {
         console.log(error);
       }
     },
-    async onDelete(id){
+    async onDelete(id) {
       try {
         await this.$http.delete("pt/" + id + "/");
       } catch (error) {
         console.log(error);
       }
     },
-    delete_item(id){
+    delete_item(id) {
       this.onDelete(id);
       this.getData();
-      this.refresh()
+      this.refresh();
     },
     edit_item(id, new_name) {
       this.editData(id, new_name);
       this.getData();
-      this.refresh()
+      this.refresh();
     },
-    refresh(){
-      setTimeout(() => { this.getData(); },500);
-    }
+    refresh() {
+      setTimeout(() => {
+        this.getData();
+      }, 500);
+    },
   },
   created() {
     this.getData();

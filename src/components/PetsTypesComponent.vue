@@ -18,6 +18,7 @@
     </li>
     <pets-type-edit-form
       v-else
+      :id="this.id"
       :name="this.name"
       @edit_item="edit_item"
       @cancel_item="cancel_item"
@@ -66,67 +67,3 @@ export default {
   },
 };
 </script>
-
-<style>
-@media (min-width: 1024px) {
-  .petstypeslist {
-    min-height: 5vh;
-    align-items: center;
-  }
-}
-.petstypesitem {
-  display: flex;
-  width: 200px;
-  justify-content: flex-end;
-
-}
-.update {
-  height: 30px;
-  width: 30px;
-  background-image: url("@/assets/pencil.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #181818;
-  border: none;
-  opacity: 0.5;
-  transition: 0.3s;
-  margin-left: 10px;
-}
-.update:hover {
-  opacity: 1;
-}
-
-.editcheck {
-  border-radius: 10px;
-  border: none;
-  transition: 0.2s linear;
-  background: rgb(139, 215, 234);
-  margin-left: 10px;
-}
-.editcheck:hover {
-  transform: rotateZ(10deg);
-}
-textarea {
-  color: rgb(255, 255, 255);
-  border-color: #2c6b7a;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  background-color: #181818;
-}
-.delete {
-  height: 30px;
-  width: 30px;
-  background-image: url("@/assets/trash.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #181818;
-  border: none;
-  opacity: 0.5;
-  transition: 0.3s;
-  margin-left: 10px;
-}
-.delete:hover {
-  opacity: 1;
-}
-</style>

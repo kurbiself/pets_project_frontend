@@ -7,6 +7,8 @@ defineProps({
 })
 </script>
 
+
+
 <template>
   <div class="greetings">
     <h1>{{ msg }}</h1>

@@ -1,8 +1,11 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-
-
+<script>
+export default {
+  computed : {
+      logged_out: function(){
+        return localStorage.access_token == null
+      }
+  }
+}
 </script>
 
 <template>
@@ -10,15 +13,23 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/pet.png" width="250" height="150" />
 
     <div class="wrapper">
-      <HelloWorld msg="Любимые питомцы" />
+      Любимые питомцы
+      <br/>
+      
+      {{ logged_out }}
       <nav>
-        <RouterLink to="/petstypeslist">Типы питомцев</RouterLink>
-        <RouterLink to="/ownerslist">Владельцы</RouterLink>
-        <RouterLink to="/petslist">Питомцы</RouterLink>
+        
+        <router-link to="/petstypeslist">Типы питомцев</router-link>
+        <router-link to="/ownerslist">Владельцы</router-link>
+        <router-link to="/petslist">Питомцы</router-link>
+
+        <router-link v-if="logged_out" to="/login" >Войти</router-link>
+        <router-link v-else  to="/logout" >Выйти</router-link>
+        {{ logged_out }}
       </nav>
     </div>
   </header>
-  <RouterView />
+  <router-view />
 </template>
 
 <style scoped>

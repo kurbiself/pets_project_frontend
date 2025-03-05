@@ -4,6 +4,8 @@ import PetsTypesList from '@/components/PetsTypesList.vue'
 import OwnersList from '@/components/OwnersList.vue'
 import PetsList from '@/components/PetsList.vue'
 import BreedsList from '@/components/BreedsList.vue'
+import LoginForm from '@/components/LoginForm.vue'
+import LogOutForm from '@/components/LogOutForm.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,7 +40,18 @@ const router = createRouter({
       name: 'breedslist',
       component: BreedsList,
       props: true
-    }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginForm
+    },
+    
+    {
+      path: '/logout',
+      name: 'logout',
+      component: LogOutForm
+    },
   ],
 })
 
