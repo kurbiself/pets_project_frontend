@@ -1,47 +1,39 @@
 @import "./base.css";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
+.main_nav a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
-  transition: 0.4s;
-  padding: 3px;
-  border-radius: 5px;
+  color: #205a91;
+  padding: 18px;
+
+  border-radius: 20px;
+  background-image: linear-gradient(
+    to right,
+    #60cfcf,
+    #0097b3
+  ); /* Параметры градиента */
+  background-repeat: no-repeat; /* Фон не повторяется */
+  background-size: 0% 100%; /* Градиент пока не показываем */
+  transition: 0.3s; /* Время перехода */
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(207, 44%, 57%, 0.2);
-  }
+a:hover {
+  background-size: 100% 100%;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    /* grid-template-columns: 1fr 1fr; */
-    padding: 0 2rem;
-  }
+.petstypeslist {
+  min-height: 5vh;
+  align-items: center;
+  font-size: 20px;
+}
+.petstypeslist a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.petstypeslist a:hover {
+  text-decoration: none;
+  color: #60cfcf;
 }
 
-@media (min-width: 1024px) {
-  .petstypeslist {
-    min-height: 5vh;
-    align-items: center;
-    font-size: 20px;
-  }
-}
 .petstypesitem {
   display: flex;
   width: 200px;
@@ -53,7 +45,7 @@ a,
   background-image: url("@/assets/pencil.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #181818;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   opacity: 0.5;
   transition: 0.3s;
@@ -70,7 +62,7 @@ a,
   transition: 0.2s linear;
   background: rgb(139, 215, 234);
   margin-left: 10px;
-  font-size: 20px
+  font-size: 20px;
 }
 .editcheck:hover {
   transform: rotateZ(10deg);
@@ -90,7 +82,7 @@ textarea {
   background-image: url("@/assets/trash.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #181818;
+  background-color: #18181800;
   border: none;
   opacity: 0.5;
   transition: 0.3s;
@@ -106,6 +98,7 @@ textarea {
     display: flex;
     align-items: center;
     font-size: 20px;
+    color: aliceblue;
   }
 }
 .owneritem {

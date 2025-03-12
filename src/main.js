@@ -3,6 +3,7 @@ import "./assets/main.css";
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import store from "./store";
 import axios from "axios";
 
 const app = createApp(App);
@@ -14,5 +15,5 @@ const ax_instance = axios.create({
 app.config.globalProperties.$http = { ...ax_instance };
 
 app.use(router);
-localStorage.access_token = null;
+app.use(store);
 app.mount("#app");

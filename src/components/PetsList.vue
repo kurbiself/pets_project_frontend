@@ -2,7 +2,7 @@
   <div>
     <h1>Список домашних животных</h1>
     <table>
-        <th>
+        <tr>
             <td>
                 Имя
             </td>
@@ -21,8 +21,10 @@
             <td>
                 Заметки
             </td>
+          </tr>
             <pets-component
                 v-for="item in items"
+                    :id="item.id"
                     :name="item.name"
                     :sex_name="item.sex_name"
                     :breed_name="item.breed_name"
@@ -30,9 +32,7 @@
                     :color="item.color"
                     :birth="item.birth"
                     :note="item.note"
-        />
-        </th>
-        
+        /> 
     </table>
   </div>
 </template>

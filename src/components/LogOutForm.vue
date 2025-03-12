@@ -6,11 +6,10 @@
 <script>
 export default {
   methods: {
-    onLogOut(){ 
-        console.log(localStorage.access_token)
-        localStorage.access_token = null
+    // ...mapActions(["removeToken"]),
+    async onLogOut(){ 
+        await this.$store.dispatch('removeToken')
         this.$router.push("/")
-        console.log(localStorage.access_token)
     },
   }
 }

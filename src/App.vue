@@ -1,31 +1,24 @@
 <script>
+import UserComponent from './components/UserComponent.vue';
 export default {
-  computed : {
-      logged_out: function(){
-        return localStorage.access_token == null
-      }
+  components: {
+    UserComponent,
   }
 }
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/pet.png" width="250" height="150" />
-
-    <div class="wrapper">
+    <h1 class="title">
       Любимые питомцы
-      <br/>
-      
-      {{ logged_out }}
-      <nav>
-        
+      <img class="logo" src="@/assets/pet.png" width="250" height="150" />
+    </h1>
+    <div>
+      <nav class="main_nav">
         <router-link to="/petstypeslist">Типы питомцев</router-link>
         <router-link to="/ownerslist">Владельцы</router-link>
         <router-link to="/petslist">Питомцы</router-link>
-
-        <router-link v-if="logged_out" to="/login" >Войти</router-link>
-        <router-link v-else  to="/logout" >Выйти</router-link>
-        {{ logged_out }}
+        <user-component class="exit_nav" />
       </nav>
     </div>
   </header>
@@ -33,11 +26,10 @@ export default {
 </template>
 
 <style scoped>
-
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+  display: flex;
   color: rgb(139, 215, 234);
+  min-width: 1024px;
 }
 
 .logo {
@@ -47,60 +39,30 @@ header {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  /*background-color: rgb(64, 178, 198);*/
   text-align: center;
-  margin-top: 2rem;
-  
+  font-size: 20px;
+  padding: 18px;
+  position: absolute; /* Абсолютное позиционирование */
+  top: 20px; /* Положение от верхнего края */
+  right: 10px;
+  width: 900px; /* Ширина блока */
+}
+.exit_nav {
+  font-size: 20px;
+  padding: 18px;
+  margin-left: 100px;
+  border: 2px solid #205a91;
+  border-radius: 20px;
+}
+.exit_nav:hover {
+  border: 0px;
+}
+.exit_nav:focus {
+  border: 0px;
 }
 
 nav a.router-link-exact-active {
-  color: #ffff
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-  
-}
-
-nav a {
-  display: inline-block;
-  padding: 1rem;
-  border-left: 1px solid #ffff;
-  color: #2c6b7a;
-  border-radius: 0;
-}
-
-nav a:first-of-type {
-  border: none;
-}
-
-@media (min-width: 1024px) {
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-    
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-    
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
-    
-  }
+  color: #ffffff;
 }
 </style>
